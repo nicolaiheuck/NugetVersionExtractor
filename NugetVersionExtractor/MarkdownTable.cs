@@ -47,8 +47,7 @@ namespace NugetVersionExtractor
         private void PrintTableHeader()
         {
             MarkdownRow headerRow = new("Name", "Version", true);
-            Rows.Add(headerRow);
-            
+            Rows.Insert(0, headerRow);
             PrintRow(headerRow);
         }
         private void PrintSeperator()
@@ -59,11 +58,11 @@ namespace NugetVersionExtractor
         }
         private void PrintRow(MarkdownRow row)
         {
-            if (row.IsHeader) PrintSeperator();
-            
             string namePadding = new(' ', MaxPackageName - row.PackageName.Length);
             string versionPadding = new(' ', MaxPackageVersion - row.PackageVersion.Length);
             Console.WriteLine($"| {row.PackageName}{namePadding} | {row.PackageVersion}{versionPadding} |");
+            
+            if (row.IsHeader) PrintSeperator();
         }
         #endregion
         
