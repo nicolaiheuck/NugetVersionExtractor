@@ -22,6 +22,8 @@ namespace NugetVersionExtractor
                 
                 table.Print();
             }
+
+            Halt();
         }
 
         #region Helpers
@@ -68,6 +70,15 @@ namespace NugetVersionExtractor
                 if (Directory.Exists(folderPath)) return folderPath;
                 
                 PrintError("Invalid path, please try again");
+            }
+        }
+        private static void Halt()
+        {
+            Console.WriteLine("\n\n\nPress X to exit");
+            while (true)
+            {
+                ConsoleKeyInfo key = Console.ReadKey(true);
+                if (key.Key == ConsoleKey.X) return;
             }
         }
         #endregion
