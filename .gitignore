@@ -1,0 +1,6 @@
+﻿*.dll
+*.exe
+*.pdb
+*/obj
+*/bin
+.idea
