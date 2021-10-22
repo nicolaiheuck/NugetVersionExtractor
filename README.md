@@ -1,4 +1,7 @@
-﻿# Example output
+## Description
+You enter the path to your project and it extracts all the nuget packages along with their version and converts them into a nice set of **formatted** markdown tables.<br>
+
+# Example output
 
 ## DataLayer
 | Name                                    | Version |
@@ -38,8 +41,6 @@
 | Microsoft.EntityFrameworkCore.InMemory | 5.0.10  |
 | Microsoft.NET.Test.Sdk                 | 16.9.4  |
 | Moq                                    | 4.16.1  |
-| NBomber                                | 2.1.1   |
-| NBomber.Http                           | 2.0.1   |
 | xunit                                  | 2.4.1   |
 | xunit.runner.visualstudio              | 2.4.3   |
 | coverlet.collector                     | 3.0.2   |
