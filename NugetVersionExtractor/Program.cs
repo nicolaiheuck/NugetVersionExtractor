@@ -8,12 +8,13 @@ namespace NugetVersionExtractor
 {
     internal static class Program
     {
-        public readonly static Regex PackageRegex = new("^[ ]*<PackageReference Include=\"([A-z.]+)\" Version=\"([0-9.]+)\".*>$", 
+        public readonly static Regex PackageRegex = new("^[ ]*<PackageReference Include=\"([^\"]+)\" Version=\"([^\"]+)\".*>$", 
                                                         RegexOptions.Compiled | RegexOptions.IgnoreCase);
 
         private static void Main(string[] args)
         {
             string folderPath = AskUserForPathToProjectFolder();
+            Console.Clear();
             foreach (FileInfo file in GetProjectFiles(folderPath))
             {
                 PrintSectionHeader(file);
@@ -42,7 +43,7 @@ namespace NugetVersionExtractor
         
         private static void PrintSectionHeader(FileInfo file)
         {
-            string fileName = file.Name.Split(".")[0];
+            string fileName = file.Name.Replace(".csproj", "");
             Console.WriteLine($"## {fileName}");
         }
         public static void PrintWarning(string text)
